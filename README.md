@@ -18,7 +18,7 @@ A modern DRF starter template with user authentication, custom user model, and i
 - Configured templates in `templates/` directory
 - Email verification available
 
-### Admin Configuration (a_users/admin.py)
+### Admin Configuration (users/admin.py)
 CustomUserAdmin uses fieldsets to organize admin form:
 ```python
 fieldsets = UserAdmin.fieldsets + (
