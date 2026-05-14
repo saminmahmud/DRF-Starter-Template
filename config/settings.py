@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django_cleanup.apps.CleanupConfig',
     'corsheaders',
+    'drf_spectacular',
     'rest_framework_simplejwt.token_blacklist',
     'rest_framework',
     'rest_framework.authtoken',
@@ -181,6 +182,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
     ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 REST_AUTH = {
@@ -211,3 +213,12 @@ FRONTEND_URL = config("FRONTEND_URL", default="http://localhost:3000")
 
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = f"{FRONTEND_URL}/login"
 ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = f"{FRONTEND_URL}/login"
+
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'DRF Starter Template API',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'DESCRIPTION': f"""API documentation for DRF Starter Template \n
+    Base URL: {config("BACKEND_URL", default="http://127.0.0.1:8000")}""",
+}
